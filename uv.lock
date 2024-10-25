@@ -75,6 +75,18 @@ wheels = [
 ]
 
 [[package]]
+name = "niwrap"
+version = "0.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "styxdefs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/89/e1/218c35633f6be2b298c3a6c40b577f097596cc4b3f878cfe5d663b86d833/niwrap-0.3.0.tar.gz", hash = "sha256:db24d10676c138a2746eb317d67a159178dd6569bf10c554b8e6790ac0972be6", size = 2631 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/53/75/305ca9711c5269b9c480330daa0f3f5a955852071bdf050ddc447de555f4/niwrap-0.3.0-py3-none-any.whl", hash = "sha256:c2fb9489565611553f0a73b805bdb2a3b2f1adc9d63983635ed4f1ae6ad53f91", size = 2888 },
+]
+
+[[package]]
 name = "nodeenv"
 version = "1.9.1"
 source = { registry = "https://pypi.org/simple" }
@@ -200,6 +212,39 @@ wheels = [
 ]
 
 [[package]]
+name = "styxdefs"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f1/ad/767613b7ba651bdf953101acd7be1f02a84288f6532ab66da6085d225a55/styxdefs-0.3.1.tar.gz", hash = "sha256:25e600fcbe2838b514ee68bbf4c57f8d2c0bfad33f2d437866f8aaffbd5f90d0", size = 5155 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/55/3c/964bd0549089e94f20b4e3203de57cd2883f479f39e1bc94420e4d97d27c/styxdefs-0.3.1-py3-none-any.whl", hash = "sha256:582cb6c3b32ef727c5c880668650c6713c6c3abefb922f87ef6b48bb730a0389", size = 6550 },
+]
+
+[[package]]
+name = "styxdocker"
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "styxdefs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9a/58/dfa4d7f9222edca0a0205587af67e78309a917903b66717f726fbfa094f6/styxdocker-0.2.0.tar.gz", hash = "sha256:e35b001016836874bd80b395ac832091a8348b0fd32c27b2feeb72123474e6bf", size = 5584 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/93/8f/f9dc8bde519b48f6b848b575835999081685a4b7253a1260e8041304de74/styxdocker-0.2.0-py3-none-any.whl", hash = "sha256:8cdc22cbedb90ac081fb6215e4402f016cae9542c0ea15668371190176b84061", size = 5817 },
+]
+
+[[package]]
+name = "styxsingularity"
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "styxdefs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/05/8a/fa4cb8825e9cbcac67b65d108abb2130ab5d800c4def6397533941252951/styxsingularity-0.2.0.tar.gz", hash = "sha256:dec49c8112ac444d4cc7f79f29fc2dcc0e30e57e9d79a90d42b57e235d376822", size = 5623 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/75/a1/4bf82f84b1270adb8f1a05dae5505540ef4d04d478a55f22ee828f54e472/styxsingularity-0.2.0-py3-none-any.whl", hash = "sha256:082621124d472adbba0102b790ecfcced15e0bd8c2c60ef4b17f7e6738d7979c", size = 5825 },
+]
+
+[[package]]
 name = "typing-extensions"
 version = "4.12.2"
 source = { registry = "https://pypi.org/simple" }
@@ -224,10 +269,16 @@ wheels = [
 
 [[package]]
 name = "xtract-seeds"
-version = "0.0.0"
+version = "0.1.dev2+g4169e64.d20241025"
 source = { editable = "." }
+dependencies = [
+    { name = "niwrap" },
+    { name = "pyyaml" },
+    { name = "styxdocker" },
+    { name = "styxsingularity" },
+]
 
-[package.dev-dependencies]
+[package.optional-dependencies]
 dev = [
     { name = "mypy" },
     { name = "pre-commit" },
@@ -236,11 +287,13 @@ dev = [
 ]
 
 [package.metadata]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "mypy", specifier = ">=1.13.0" },
-    { name = "pre-commit", specifier = ">=4.0.1" },
-    { name = "ruff", specifier = ">=0.7.1" },
-    { name = "setuptools-scm", specifier = ">=8.1.0" },
+requires-dist = [
+    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.13.0" },
+    { name = "niwrap", specifier = ">=0.3.0" },
+    { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.0.1" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7.1" },
+    { name = "setuptools-scm", marker = "extra == 'dev'", specifier = ">=8.1.0" },
+    { name = "styxdocker", specifier = ">=0.2.0" },
+    { name = "styxsingularity", specifier = ">=0.2.0" },
 ]

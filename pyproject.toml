@@ -5,7 +5,12 @@ readme = "README.md"
 authors = [{name = "Jason Kai", email = "jason.kai@childmind.org"}]
 dynamic = ["version"]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+  "niwrap>=0.3.0",
+  "pyyaml>=6.0.2",
+  "styxdocker>=0.2.0",
+  "styxsingularity>=0.2.0"
+]
 keywords = ["xtract", "rhemap", "tractography rois"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -20,17 +25,17 @@ classifiers = [
 [project.urls]
 Repository = "https://github.com/kaitj/xtract-seeds"
 
-[build-system]
-requires = ["setuptools>=61", "setuptools_scm[toml]>=8.1.0"]
-build-backend = "setuptools.build_meta"
-
-[tool.uv]
-dev-dependencies = [
+[project.optional-dependencies]
+dev = [
   "mypy>=1.13.0",
   "pre-commit>=4.0.1",
   "ruff>=0.7.1",
   "setuptools-scm>=8.1.0"
 ]
+
+[build-system]
+requires = ["setuptools>=61", "setuptools_scm[toml]>=8.1.0"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
 write_to = "src/xtract_seeds/_version.py"
