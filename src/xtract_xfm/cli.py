@@ -21,6 +21,7 @@ xtract_xfm is a tool designed to perform transformation of XTRACT data
 between different NHP templates via composite warps provided from RheMAP.""",
         )
         self._add_required_args()
+        self._add_runner_args()
         self._add_metadata_args()
 
     def _add_required_args(self) -> None:
@@ -42,6 +43,35 @@ between different NHP templates via composite warps provided from RheMAP.""",
             metavar="transform",
             type=Path,
             help="path to composite transform to be applied",
+        )
+
+    def _add_runner_args(self) -> None:
+        """Styx runner arguments."""
+        runner_args = self.parser.add_argument_group("styx runner options")
+        runner_args.add_argument(
+            "--runner",
+            metavar="runner",
+            dest="runner_choice",
+            type=str,
+            choices=["local", "docker", "singularity", "apptainer"],
+            help="workflow runner to use (one of [%(choices)s]; default %(default)s)",
+        )
+        runner_args.add_argument(
+            "--tmpdir",
+            metavar="directory",
+            dest="runner_tmpdir",
+            default="styx_tmp",
+            type=Path,
+            help="temporary working directory of runner (default: %(default)s)",
+        )
+        runner_args.add_argument(
+            "--config",
+            metavar="config",
+            dest="runner_config",
+            default=None,
+            type=Path,
+            help="""YAML config file mapping local containers to expected tags
+            (for singularity / apptainer).""",
         )
 
     def _add_metadata_args(self) -> None:

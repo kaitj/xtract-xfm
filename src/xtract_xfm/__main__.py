@@ -1,7 +1,7 @@
 """Entrypoint of application."""
 
+from xtract_xfm import utils
 from xtract_xfm.cli import XtractXfmArgumentParser
-from xtract_xfm.utils import setup_logger
 
 
 def main() -> None:
@@ -9,7 +9,8 @@ def main() -> None:
     parser = XtractXfmArgumentParser()
     args = parser.parse_args()
 
-    logger = setup_logger(level=args.verbose, debug=args.debug)
+    logger = utils.setup_logger(level=args.verbose, debug=args.debug)
+    runner = utils.setup_runner(args=args, logger=logger)
 
 
 if __name__ == "__main__":
