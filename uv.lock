@@ -268,8 +268,8 @@ wheels = [
 ]
 
 [[package]]
-name = "xtract-seeds"
-version = "0.1.dev2+g4169e64.d20241025"
+name = "xtract-xfm"
+version = "0.1.dev3+g1ed41b0.d20241025"
 source = { editable = "." }
 dependencies = [
     { name = "niwrap" },

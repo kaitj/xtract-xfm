@@ -25,6 +25,9 @@ classifiers = [
 [project.urls]
 Repository = "https://github.com/kaitj/xtract-xfm"
 
+[project.scripts]
+xtract_xfm = "xtract_xfm.__main__:main"
+
 [project.optional-dependencies]
 dev = [
   "mypy>=1.13.0",
@@ -36,6 +39,10 @@ dev = [
 [build-system]
 requires = ["setuptools>=61", "setuptools_scm[toml]>=8.1.0"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["xtract_xfm"]
+package-dir = {"" = "src"}
 
 [tool.setuptools_scm]
 write_to = "src/xtract_xfm/_version.py"
