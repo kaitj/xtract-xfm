@@ -58,6 +58,16 @@ between different NHP templates via composite warps provided from RheMAP.""",
             version=f"{__package__} {__version__}",
             help="show version",
         )
+        self.parser.add_argument(
+            "--debug", action="store_true", help="enter debug mode"
+        )
+        self.parser.add_argument(
+            "-v",
+            "--verbose",
+            action="count",
+            default=0,
+            help="increase output verbosity (e.g. -v, -v, -vvv)",
+        )
 
     def parse_args(self, args: Sequence[str] | None = None) -> Namespace:
         """Parse command-line arguments."""
