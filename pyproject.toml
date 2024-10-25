@@ -1,6 +1,6 @@
 [project]
-name = "xtract-seeds"
-description = "Workflow for transforming seeds between different spaces via RheMAP"
+name = "xtract-xfm"
+description = "Transforming XTRACT data between different spaces via RheMAP."
 readme = "README.md"
 authors = [{name = "Jason Kai", email = "jason.kai@childmind.org"}]
 dynamic = ["version"]
@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 [project.urls]
-Repository = "https://github.com/kaitj/xtract-seeds"
+Repository = "https://github.com/kaitj/xtract-xfm"
 
 [project.optional-dependencies]
 dev = [
@@ -38,7 +38,7 @@ requires = ["setuptools>=61", "setuptools_scm[toml]>=8.1.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
-write_to = "src/xtract_seeds/_version.py"
+write_to = "src/xtract_xfm/_version.py"
 
 [tool.mypy]
 ignore_missing_imports = true
