@@ -1,0 +1,77 @@
+[project]
+name = "xtract-seeds"
+description = "Workflow for transforming seeds between different spaces via RheMAP"
+readme = "README.md"
+authors = [{name = "Jason Kai", email = "jason.kai@childmind.org"}]
+dynamic = ["version"]
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["xtract", "rhemap", "tractography rois"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12"
+]
+
+[project.urls]
+Repository = "https://github.com/kaitj/xtract-seeds"
+
+[build-system]
+requires = ["setuptools>=61", "setuptools_scm[toml]>=8.1.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+dev-dependencies = [
+  "mypy>=1.13.0",
+  "pre-commit>=4.0.1",
+  "ruff>=0.7.1",
+  "setuptools-scm>=8.1.0"
+]
+
+[tool.setuptools_scm]
+write_to = "src/xtract_seeds/_version.py"
+
+[tool.mypy]
+ignore_missing_imports = true
+allow_redefinition = true
+disable_error_code = ["no-redef"]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+src = ["src"]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["ANN", "D", "E", "F", "I"]
+ignore = [
+  "ANN002",  # args should not be annotated.
+  "ANN003",  # kwargs should not be annotated.
+  "ANN101",  # self should not be annotated.
+  "ANN102",  # cls should not be annotated.
+  "D105",  # undocumented-magic-method (e.g. __str__)
+  "D107"  # undocumented-public-init (e.g. __init__)
+]
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"src/**/*.py" = [
+  "D101",  # ignore missing class docstrings
+  "D102"  # ignore missing method docstrings
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
