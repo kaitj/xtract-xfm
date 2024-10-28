@@ -6,7 +6,7 @@ authors = [{name = "Jason Kai", email = "jason.kai@childmind.org"}]
 dynamic = ["version"]
 requires-python = ">=3.11"
 dependencies = [
-  "niwrap>=0.3.0",
+  "niwrap>=0.3.1",
   "pyyaml>=6.0.2",
   "styxdocker>=0.2.0",
   "styxsingularity>=0.2.0"

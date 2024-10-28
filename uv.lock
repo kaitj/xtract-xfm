@@ -76,14 +76,14 @@ wheels = [
 
 [[package]]
 name = "niwrap"
-version = "0.3.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "styxdefs" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/89/e1/218c35633f6be2b298c3a6c40b577f097596cc4b3f878cfe5d663b86d833/niwrap-0.3.0.tar.gz", hash = "sha256:db24d10676c138a2746eb317d67a159178dd6569bf10c554b8e6790ac0972be6", size = 2631 }
+sdist = { url = "https://files.pythonhosted.org/packages/9c/8d/00df63720cd9a1a0f9bb6e2a2c513edf639679498098160de435d7cbd32e/niwrap-0.3.1.tar.gz", hash = "sha256:ce32f8d9f00af7ba79d0595c1825b00d72f46909e7db987860339d9bcb51b4c1", size = 1306164 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/53/75/305ca9711c5269b9c480330daa0f3f5a955852071bdf050ddc447de555f4/niwrap-0.3.0-py3-none-any.whl", hash = "sha256:c2fb9489565611553f0a73b805bdb2a3b2f1adc9d63983635ed4f1ae6ad53f91", size = 2888 },
+    { url = "https://files.pythonhosted.org/packages/7d/62/dbf0588964f7326e242054d6ab724f32e682730f13af6a0c12a00aa56264/niwrap-0.3.1-py3-none-any.whl", hash = "sha256:c41ad6aa081560d686afb995f329cb008e5cf6db6a150a9aabab6748edfa04c1", size = 2860900 },
 ]
 
 [[package]]
@@ -269,7 +269,7 @@ wheels = [
 
 [[package]]
 name = "xtract-xfm"
-version = "0.1.dev5+g675196c.d20241025"
+version = "0.1.dev6+g59e6875.d20241028"
 source = { editable = "." }
 dependencies = [
     { name = "niwrap" },
@@ -289,7 +289,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.13.0" },
-    { name = "niwrap", specifier = ">=0.3.0" },
+    { name = "niwrap", specifier = ">=0.3.1" },
     { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.0.1" },
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7.1" },
