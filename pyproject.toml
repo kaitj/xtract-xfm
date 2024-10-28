@@ -26,7 +26,7 @@ classifiers = [
 Repository = "https://github.com/kaitj/xtract-xfm"
 
 [project.scripts]
-xtract_xfm = "xtract_xfm.__main__:main"
+xtract_xfm = "xtract_xfm.run:main"
 
 [project.optional-dependencies]
 dev = [

@@ -102,7 +102,7 @@ between different NHP templates via composite warps provided from RheMAP.""",
             "--verbose",
             action="count",
             default=0,
-            help="increase output verbosity (e.g. -v, -v, -vvv)",
+            help="increase output verbosity (e.g. -v, -vv, -vvv)",
         )
 
     def parse_args(self, args: Sequence[str] | None = None) -> Namespace:

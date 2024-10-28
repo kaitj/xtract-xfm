@@ -1,6 +1,8 @@
 """Entrypoint of application."""
 
 import shutil
+import sys
+from collections.abc import Sequence
 
 from niwrap import ants
 
@@ -8,10 +10,12 @@ from xtract_xfm import io, utils
 from xtract_xfm.cli import XtractXfmArgumentParser
 
 
-def main() -> None:
+def main(args: Sequence[str] | None = None) -> None:
     """xtract_xfm entrypoint."""
     parser = XtractXfmArgumentParser()
-    args = parser.parse_args()
+    if args is None:
+        args: list[str] = sys.argv[1:]
+    args = parser.parse_args(args)
 
     logger = utils.setup_logger(level=args.verbose, debug=args.debug)
 
@@ -28,8 +32,8 @@ def main() -> None:
     xfm = ants.ants_apply_transforms(
         input_image=args.input_file,
         reference_image=args.template_file,
-        output=args.output_file,
-        transform=[ants.AntsApplyTransformsTransformFileName(args.transform_file)],
+        output=ants.AntsApplyTransformsWarpedOutput(str(args.output_file.name)),
+        transform=[ants.AntsApplyTransformsTransformFileName(str(args.transform_file))],
         interpolation=ants.AntsApplyTransformsNearestNeighbor(),
     )
     args.output_file.parent.mkdir(parents=True, exist_ok=True)
