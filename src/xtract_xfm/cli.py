@@ -33,14 +33,20 @@ between different NHP templates via composite warps provided from RheMAP.""",
             help="path to input file to be transformed",
         )
         self.parser.add_argument(
+            "template_file",
+            metavar="template_file",
+            type=Path,
+            help="path to referenece template file",
+        )
+        self.parser.add_argument(
             "output_file",
             metavar="output_file",
             type=Path,
             help="full file path (including name) to save transformed output",
         )
         self.parser.add_argument(
-            "composite_transform",
-            metavar="transform",
+            "transform_file",
+            metavar="transform_file",
             type=Path,
             help="path to composite transform to be applied",
         )
