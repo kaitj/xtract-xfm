@@ -4,6 +4,9 @@ Transformation of [XTRACT] ROIs to different templates made available via [RheMa
 Note, this is only a library of commands that perform the transformation and no data
 is provided. We recommend getting the data from their original sources.
 
+> [!Note]
+> This [repository] contains pre-calculated warps between templates shown in [RheMap]
+
 ## Installation
 
 `xtract-seeds` can be installed via `pip`:
@@ -20,3 +23,4 @@ file with the same directory organization as the source.
 
 [XTRACT]: https://fsl.fmrib.ox.ac.uk/fsl/docs/#/diffusion/xtract
 [RheMap]: https://github.com/PRIME-RE/RheMAP
+[repository]: https://gin.g-node.org/ChrisKlink/RheMAP/src/master
